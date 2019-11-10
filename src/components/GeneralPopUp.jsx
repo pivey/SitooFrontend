@@ -16,11 +16,21 @@ const PopUpMother = styled(FormMother)`
     padding: 1rem;
     margin-left: 0;
     border-radius: 5px;
+    @media only screen and (max-width: 400px) {
+        padding: 0.8rem;
+        height: auto;
+        width: 60%;
+    }
 `;
 
 const PopUpMessage = styled(Title)`
     margin: 0rem;
     padding: 1rem;
+    @media only screen and (max-width: 400px) {
+        font-size: 0.6rem;
+        text-align: center;
+        padding: 0.5rem;
+    }
 `;
 
 const GeneralPopUp = ({ message, btns, openStatus }) => {
@@ -29,7 +39,7 @@ const GeneralPopUp = ({ message, btns, openStatus }) => {
     return (
         <Modal display={openStatus}>
             <PopUpMother display={openStatus}>
-                <Title size="1.5rem" align="center" margin="0rem">
+                <Title size="0.8rem" align="center" margin="0rem">
                     {message.title}
                 </Title>
                 <PopUpMessage>{message.content}</PopUpMessage>

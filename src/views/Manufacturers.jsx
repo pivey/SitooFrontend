@@ -9,6 +9,7 @@ import { RowTitle, TitleRow, Row, RowEl, DateYear } from '../components/UserRow'
 
 const Title = styled(RowTitle)`
     margin-left: 0rem;
+    width: 33.333%;
 `;
 
 const Manufacturers = () => {
@@ -47,7 +48,7 @@ const Manufacturers = () => {
                 <TitleRow>
                     <Title>Name</Title>
                     <Title>Company Id</Title>
-                    <Title>Last Delivery Date</Title>
+                    <Title>Last Delivery</Title>
                 </TitleRow>
                 {companyList &&
                     companyList.map((e, i) => (
@@ -55,9 +56,6 @@ const Manufacturers = () => {
                             <RowEl>{e.companyName}</RowEl>
                             <RowEl>{e.companyAddress}</RowEl>
                             <RowEl>{e.created}</RowEl>
-                            <RowEl>
-                                <DateYear>{moment().format(` (YYYY)`)}</DateYear>
-                            </RowEl>
                         </Row>
                     ))}
 

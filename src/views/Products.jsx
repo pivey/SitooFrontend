@@ -35,9 +35,6 @@ const Products = () => {
                             <RowEl>{e.prodName}</RowEl>
                             <RowEl>{e.prodId}</RowEl>
                             <RowEl>{e.created}</RowEl>
-                            <RowEl>
-                                <DateYear>{moment().format(` (YYYY)`)}</DateYear>
-                            </RowEl>
                         </Row>
                     ))}
 

@@ -35,6 +35,13 @@ const FormMother = styled.div`
     margin-left: 1rem;
     z-index: 1000;
     visibility: ${({ display }) => (display ? 'visible' : 'hidden')};
+    @media only screen and (max-width: 400px) {
+        margin-left: 0rem;
+        font-size: 0.6rem;
+        padding: 1.5rem;
+        height: 50%;
+        width: 80%;
+    }
 `;
 
 const SubmitBtn = styled(FooterBtn)`
@@ -52,6 +59,11 @@ const Title = styled.div`
     margin-left: ${({ marginLeft }) => marginLeft || '.5rem'};
     background: #e1e5e8;
     color: black;
+    @media only screen and (max-width: 400px) {
+        margin-bottom: ${({ margin }) => (margin = '1rem' || '-1.5rem')};
+        font-size: ${({ size }) => (size = '1rem' || '0.8rem')};
+        margin-left: ${({ marginLeft }) => (marginLeft = '0rem' || '.5rem')};
+    }
 `;
 
 const StyledInput = styled.input`
@@ -67,7 +79,14 @@ const StyledInput = styled.input`
     border: 0.5px solid lightGrey;
     top: 0;
     left: 0;
+    @media only screen and (max-width: 400px) {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        padding: 0.8rem;
+        margin-top: -1rem;
+    }
 `;
+
 const StyledForm = styled.form`
     ${flex('space-around', 'center', 'column')}
     text-align: center;
@@ -81,6 +100,9 @@ const ButtonHolder = styled.div`
     padding:0.5rem;
     height: auto;
     width: 100%;
+    @media only screen and (max-width: 400px) {
+        padding: 0rem;
+    }
 `;
 
 const ErrorMsg = styled.div`

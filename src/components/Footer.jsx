@@ -30,7 +30,6 @@ const Footer = ({ userBtns }) => {
         posts,
         setEditObj,
         popUpConfirm,
-        setPopUpConfirm,
         setOpenPopUp
     } = useContext(AppContext);
 

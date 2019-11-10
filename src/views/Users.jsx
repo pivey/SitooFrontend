@@ -29,11 +29,9 @@ const AppWrapper = styled.div`
 `;
 
 const Users = () => {
-    const { update, setLoading, posts, setPosts, setEditObj, openPopUp, setOpenPopUp, setPopUpConfirm } = useContext(
-        AppContext
-    );
+    const { update, setLoading, posts, setPosts, setEditObj, openPopUp, setPopUpConfirm } = useContext(AppContext);
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(4);
+    const [postsPerPage] = useState(6);
 
     useEffect(() => {
         const getPosts = async () => {
@@ -68,22 +66,24 @@ const Users = () => {
     const firstPage = () => setCurrentPage(1);
     const lastPage = () => setCurrentPage(Math.ceil(posts.length / postsPerPage) - 1);
     return (
-        <AppWrapper>
-            {openPopUp && <GeneralPopUp btns openStatus={openPopUp.deleteUser} message={warning} />}
-            {openPopUp && <GeneralPopUp openStatus={openPopUp.addUser} message={created} />}
-            <LogoNav />
-            <NavBar />
-            <UserSection data={currentPosts} />
-            <Paginate
-                postsPerPage={postsPerPage}
-                totalPosts={posts.length}
-                paginate={paginate}
-                firstPage={firstPage}
-                lastPage={lastPage}
-                currentPage={currentPage}
-            />
+        <>
+            <AppWrapper>
+                {openPopUp && <GeneralPopUp btns openStatus={openPopUp.deleteUser} message={warning} />}
+                {openPopUp && <GeneralPopUp openStatus={openPopUp.addUser} message={created} />}
+                <LogoNav />
+                <NavBar />
+                <UserSection data={currentPosts} />
+                <Paginate
+                    postsPerPage={postsPerPage}
+                    totalPosts={posts.length}
+                    paginate={paginate}
+                    firstPage={firstPage}
+                    lastPage={lastPage}
+                    currentPage={currentPage}
+                />
+            </AppWrapper>
             <Footer userBtns />
-        </AppWrapper>
+        </>
     );
 };
 

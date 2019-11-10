@@ -12,20 +12,19 @@ const UsersMother = styled.div`
     ${noSelect}
     ${flex('flex-start', 'flex-start', 'column')}
    background:lightGrey;
+    overflow-y: scroll;
 `;
 
 const LoadingMother = styled.div`
     ${flex('center', 'center')}
     height:100vh;
     width: 100vw;
-    font-size: 1.2rem;
     font-weight: bold;
 `;
 
 const UserSection = ({ data }) => {
     const { loading } = useContext(AppContext);
 
-    const peter = 'tired';
     return (
         <>
             <UsersMother>

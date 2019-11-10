@@ -9,32 +9,30 @@ const { flex, noSelect } = globals;
 const PageNav = styled.nav`
     ${flex('center', 'center')}
     background:transparent;
-    width: 100vw;
+    width: 100%;
     padding: 1.5rem;
     position: fixed;
     bottom: 3rem;
+    @media only screen and (max-width: 400px) {
+        font-size: 0.6rem;
+        padding: 0.5rem;
+    }
 `;
 
 const PageUL = styled.div`
     ${flex('center', 'center')}
-    width: 5rem;
-    margin-left: 2.5rem;
+    width: auto;
 `;
 
 const PageLI = styled.div`
-    ${flex('center', 'center')}
+    background: rgba(255, 255, 255, 0.7);
 `;
 
 const PageBtn = styled.a`
     ${noSelect}
     ${flex('center', 'center')}
-    background:white;
-    color: black;
-    width: auto;
     padding: 0.8rem 1rem;
-    text-decoration: none;
     border: 0.5px solid lightGrey;
-
     &:hover {
         cursor: pointer;
         background: #3590f3;
@@ -43,6 +41,14 @@ const PageBtn = styled.a`
     &.selected {
         background: #3590f3;
         color: white;
+    }
+    @media only screen and (max-width: 400px) {
+        font-size: 0.6rem;
+        padding: 0.6rem;
+    }
+    @media only screen and (max-width: 300px) {
+        font-size: 0.4rem;
+        padding: 0.4rem;
     }
 `;
 
@@ -66,28 +72,26 @@ const Paginate = ({ postsPerPage, totalPosts, paginate, firstPage, lastPage, cur
         pageNumbers.push(i);
     }
     return (
-        <>
-            <PageNav>
-                <PageUL>
-                    {!loading && (
-                        <>
-                            <FirstPageBtn onClick={() => firstPage()}>{backwards}</FirstPageBtn>
-                            {pageNumbers.map(num => (
-                                <PageLI key={num}>
-                                    <PageBtn
-                                        onClick={() => paginate(num)}
-                                        className={num === currentPage ? 'selected' : ''}
-                                    >
-                                        {num}
-                                    </PageBtn>
-                                </PageLI>
-                            ))}
-                            <LastPageBtn onClick={() => lastPage()}>{forward}</LastPageBtn>
-                        </>
-                    )}
-                </PageUL>
-            </PageNav>
-        </>
+        <PageNav>
+            <PageUL>
+                {!loading && (
+                    <>
+                        <FirstPageBtn onClick={() => firstPage()}>{backwards}</FirstPageBtn>
+                        {pageNumbers.map(num => (
+                            <PageLI key={num}>
+                                <PageBtn
+                                    onClick={() => paginate(num)}
+                                    className={num === currentPage ? 'selected' : ''}
+                                >
+                                    {num}
+                                </PageBtn>
+                            </PageLI>
+                        ))}
+                        <LastPageBtn onClick={() => lastPage()}>{forward}</LastPageBtn>
+                    </>
+                )}
+            </PageUL>
+        </PageNav>
     );
 };
 

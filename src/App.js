@@ -5,8 +5,6 @@ import Products from './views/Products';
 import Manufacturers from './views/Manufacturers';
 
 function App() {
-    const peter = 'working';
-
     return (
         <Router>
             <Switch>

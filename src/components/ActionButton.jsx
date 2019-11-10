@@ -21,22 +21,24 @@ const FooterBtn = styled.button`
         border:2px solid white;
         cursor:pointer;
     }
+     @media only screen and (max-width: 400px) {
+        font-size: 0.5rem;
+        padding: .4rem;
+        font-weight: bold;
+    }
 `;
 
-const ActionBtn = ({ color, name, deleter, adder, editer }) => {
-    const peter = 'working';
-    return (
-        <>
-            <FooterBtn
-                onClick={name === 'Add User' ? adder : name === 'Delete Selected' ? deleter : editer}
-                type="button"
-                color={color}
-            >
-                {name}
-            </FooterBtn>
-        </>
-    );
-};
+const ActionBtn = ({ color, name, deleter, adder, editer }) => (
+    <>
+        <FooterBtn
+            onClick={name === 'Add User' ? adder : name === 'Delete Selected' ? deleter : editer}
+            type="button"
+            color={color}
+        >
+            {name}
+        </FooterBtn>
+    </>
+);
 
 export { FooterBtn };
 

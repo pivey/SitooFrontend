@@ -3,16 +3,6 @@ import { css, keyframes } from 'styled-components';
 const authToken = 'OTAzMTYtMTI1OnBmWDBZN0EyVFlBbFo1NzFJS0VPN0FLb1h6YTZZbHZzUDhrS3ZBdTM=';
 const baseURL = 'https://api-sandbox.mysitoo.com/v2/accounts/90316/';
 
-const fadeIn = keyframes`
-  0% { 
-    opacity: 0; 
-  } 
-  100% { 
-    opacity: 1; 
-  } 
-}
-`;
-
 const btnFocus = css`
     &:focus {
         outline: 0;
@@ -21,20 +11,11 @@ const btnFocus = css`
 
 const copyCat = state => JSON.parse(JSON.stringify(state));
 
-const backgroundProvider = icon => `
-    background: url(${icon});
-    background-size: cover;
-    background-position: 50% 50%;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    `;
-
-const backgroundOptions = () => `
-    background-size: cover;
-    background-position: 50% 50%;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    `;
+const ellipsis = css`
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+`;
 
 const noSelect = css`
     -webkit-touch-callout: none; /* iOS Safari */
@@ -55,13 +36,11 @@ const flex = (justify, align, direction = 'row') => `
 const helpers = {
     noSelect,
     flex,
-    fadeIn,
-    backgroundProvider,
-    backgroundOptions,
     btnFocus,
     copyCat,
     authToken,
-    baseURL
+    baseURL,
+    ellipsis
 };
 
 export default helpers;

@@ -10,6 +10,9 @@ const NavHolder = styled.div`
     width: 100%;
     height: auto;
     background: #26201d;
+    @media only screen and (max-width: 400px) {
+        ${flex('space-around', 'center')}
+    }
 `;
 
 const navInputs = [
@@ -18,15 +21,12 @@ const navInputs = [
     { text: 'Manufacturers', route: '/Manufacturers' }
 ];
 
-const NavBar = () => {
-    const peter = 'working';
-    return (
-        <NavHolder>
-            {navInputs.map((e, i) => (
-                <NavButtons key={i} link={e.route} btnText={e.text} />
-            ))}
-        </NavHolder>
-    );
-};
+const NavBar = () => (
+    <NavHolder>
+        {navInputs.map((e, i) => (
+            <NavButtons key={i} link={e.route} btnText={e.text} />
+        ))}
+    </NavHolder>
+);
 
 export default NavBar;
